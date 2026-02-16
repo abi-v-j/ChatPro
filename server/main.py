@@ -39,6 +39,14 @@ def iso_z(dt: datetime) -> str:
 
 
 
+def as_utc(dt: datetime) -> datetime:
+    """Convert mongo datetime (often naive UTC) into aware UTC datetime."""
+    if dt is None:
+        return None
+    if dt.tzinfo is None:
+        return dt.replace(tzinfo=timezone.utc)  # treat naive as UTC (mongo default)
+    return dt.astimezone(timezone.utc)
+
 def serialize_dt(obj):
     if isinstance(obj, datetime):
         return iso_z(obj)
@@ -90,7 +98,11 @@ async def root():
     return {"message": "Welcome to EmailProMax API"}
 # MongoDB connection
 MONGO_DETAILS = "mongodb+srv://darvy:darvy@cluster0.fbmfa52.mongodb.net/whisperMail"
-client = AsyncIOMotorClient(MONGO_DETAILS)
+client = AsyncIOMotorClient(
+    MONGO_DETAILS,
+    tz_aware=True,
+    tzinfo=timezone.utc
+)
 database = client.emailpromax
 # Collections
 user_collection = database.get_collection("users")
@@ -524,7 +536,7 @@ async def reset_password_otp(payload: VerifyOtpResetRequest):
     if not record:
         raise HTTPException(status_code=400, detail="Invalid OTP")
 
-    if record["expires_at"] < now_utc():
+    if as_utc(record["expires_at"]) < now_utc():
         raise HTTPException(status_code=400, detail="OTP expired")
 
     # ✅ Update password
