@@ -1,0 +1,437 @@
+/* Premium FaceAuth Styles - Deep Blue & Amber Theme */
+.premiumAuthContainer {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0c1a2d 0%, #1e3a5f 50%, #2d4a7a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.premiumAuthContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(30, 58, 95, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 159, 28, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(59, 130, 246, 0.25) 0%, transparent 50%);
+  animation: backgroundShift 15s ease-in-out infinite;
+}
+
+@keyframes backgroundShift {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.1) rotate(1deg); }
+}
+
+.authGlassCard {
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 24px;
+  padding: 40px;
+  width: 100%;
+  max-width: 480px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.25),
+    0 0 100px rgba(59, 130, 246, 0.1);
+  position: relative;
+  z-index: 2;
+}
+
+.authHeader {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.appLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.appLogo h1 {
+  color: white;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.logoIcon {
+  font-size: 32px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.authHeader h2 {
+  color: #f8fafc;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.authSubtitle {
+  color: rgba(248, 250, 252, 0.7);
+  font-size: 14px;
+  margin: 0;
+  font-weight: 400;
+}
+
+.videoContainer {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  background: rgba(30, 41, 59, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.authVideo {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+  filter: brightness(1.05) contrast(1.1);
+}
+
+.videoOverlay {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  right: 16px;
+}
+
+.faceIndicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(15, 23, 42, 0.9);
+  padding: 8px 12px;
+  border-radius: 20px;
+  color: #e2e8f0;
+  font-size: 12px;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.indicatorDot {
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.confidenceBar {
+  height: 3px;
+  background: linear-gradient(90deg, #10b981, #3b82f6);
+  margin-top: 8px;
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+}
+
+.scanningLine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #fbbf24, transparent);
+  box-shadow: 0 0 20px rgba(251, 191, 36, 0.6);
+}
+
+@keyframes pulse {
+  0%, 100% { 
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6);
+  }
+  50% { 
+    opacity: 0.7;
+    box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+  }
+}
+
+.inputGroup {
+  margin-bottom: 20px;
+}
+
+.premiumInput {
+  width: 90%;
+  padding: 16px 20px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  background: rgba(30, 41, 59, 0.6);
+  color: #f1f5f9;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.premiumInput:focus {
+  outline: none;
+  border-color: rgba(251, 191, 36, 0.5);
+  background: rgba(30, 41, 59, 0.8);
+  box-shadow: 
+    inset 0 2px 4px rgba(0, 0, 0, 0.1),
+    0 0 20px rgba(251, 191, 36, 0.1);
+}
+
+.premiumInput::placeholder {
+  color: rgba(148, 163, 184, 0.8);
+}
+
+.premiumInput:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.errorMessage {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.errorIcon {
+  font-size: 16px;
+}
+
+.authActions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.premiumBtn {
+  padding: 16px 24px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.premiumBtn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.premiumBtn:hover::before {
+  left: 100%;
+}
+
+.premiumBtn.primary {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #1e293b;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+}
+
+.premiumBtn.primary:hover:not(:disabled) {
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.6);
+  transform: translateY(-1px);
+}
+
+.premiumBtn.secondary {
+  background: rgba(30, 41, 59, 0.6);
+  color: #e2e8f0;
+  border: 2px solid rgba(251, 191, 36, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.premiumBtn.secondary:hover:not(:disabled) {
+  background: rgba(30, 41, 59, 0.8);
+  border-color: rgba(251, 191, 36, 0.5);
+  box-shadow: 0 4px 15px rgba(251, 191, 36, 0.2);
+}
+
+.premiumBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.loadingSpinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.authFooter {
+  text-align: center;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.authFooter p {
+  color: rgba(148, 163, 184, 0.8);
+  font-size: 12px;
+  margin: 0;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.floatingOrb1, .floatingOrb2 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  z-index: 1;
+  opacity: 0.6;
+}
+
+.floatingOrb1 {
+  width: 200px;
+  height: 200px;
+  top: -50px;
+  left: -50px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, transparent 70%);
+}
+
+.floatingOrb2 {
+  width: 150px;
+  height: 150px;
+  bottom: -30px;
+  right: -30px;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.3) 0%, transparent 70%);
+}
+
+/* Status indicators for better UX */
+.premiumBtn.primary:not(:disabled) {
+  position: relative;
+}
+
+.premiumBtn.primary:not(:disabled)::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, #f59e0b, #d97706, #f59e0b);
+  border-radius: 14px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.premiumBtn.primary:not(:disabled):hover::after {
+  opacity: 1;
+}
+
+/* Enhanced focus states for accessibility */
+.premiumInput:focus,
+.premiumBtn:focus {
+  outline: 2px solid rgba(251, 191, 36, 0.5);
+  outline-offset: 2px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .premiumAuthContainer {
+    padding: 16px;
+  }
+  
+  .authGlassCard {
+    padding: 24px;
+    border-radius: 20px;
+  }
+  
+  .appLogo h1 {
+    font-size: 24px;
+  }
+  
+  .authHeader h2 {
+    font-size: 20px;
+  }
+  
+  .authVideo {
+    height: 200px;
+  }
+  
+  .premiumBtn {
+    padding: 14px 20px;
+    font-size: 14px;
+  }
+  
+  .floatingOrb1, .floatingOrb2 {
+    display: none;
+  }
+  
+  .premiumInput {
+    width: 85%;
+  }
+}
+
+/* Dark mode optimizations */
+@media (prefers-color-scheme: dark) {
+  .authGlassCard {
+    background: rgba(15, 23, 42, 0.8);
+  }
+  
+  .premiumInput {
+    background: rgba(30, 41, 59, 0.7);
+  }
+}
+
+/* High contrast support */
+@media (prefers-contrast: high) {
+  .premiumAuthContainer {
+    background: linear-gradient(135deg, #0a1425 0%, #152642 100%);
+  }
+  
+  .authGlassCard {
+    border: 2px solid rgba(251, 191, 36, 0.6);
+  }
+  
+  .premiumInput {
+    border: 2px solid rgba(255, 255, 255, 0.3);
+  }
+}
