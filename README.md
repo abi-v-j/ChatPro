@@ -110,8 +110,7 @@ npm run dev
 This project is for educational purposes. Please check individual file headers for more details.
 
 ## Authors
-- [Your Name]
-- [Contributors]
+- AJ
 
 ---
 Feel free to contribute or raise issues for improvements!
